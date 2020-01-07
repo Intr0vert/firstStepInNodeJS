@@ -1,19 +1,19 @@
-let http = require("http");
-let fs = require("fs");
+const http = require("http");
+const fs = require("fs");
 
-http.createServer(function (req, res) {
+http.createServer((req, res) => {
 	res.writeHead(200, {'Content-Type': 'text/html'});
-	if (req.url == "/") {
+	if (req.url === "/") {
 		fs.readFile("index.html", function(err, data) {
 			res.write(data);
 			res.end();
 		});
-	} else if (req.url == "/contact-me") {
+	} else if (req.url === "/contact-me") {
 		fs.readFile("contact-me.html", function(err, data) {
 			res.write(data);
 			res.end();
 		});
-	} else if (req.url == "/about") {
+	} else if (req.url === "/about") {
 		fs.readFile("about.html", function(err, data) {
 			res.write(data);
 			res.end();
